@@ -1,0 +1,358 @@
+OCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZM Beauty Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tajawal:wght@300;400;500;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#c9a96e;--dark:#0c0a0b;--dark2:#141012;--dark3:#1e181a;--cream:#f8f0e8;--text:#ede0d4;--muted:#80706a;--border:rgba(201,169,110,0.13);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:'Jost',sans-serif;min-height:100vh;overflow-x:hidden;}
+body.rtl{direction:rtl;font-family:'Tajawal',sans-serif;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 15% 20%,rgba(201,169,110,0.06) 0%,transparent 55%),radial-gradient(ellipse at 85% 80%,rgba(212,144,154,0.04) 0%,transparent 50%);}
+.lang-fab{position:fixed;top:20px;right:20px;z-index:999;background:var(--dark2);border:1px solid var(--gold);color:var(--gold);padding:8px 18px;border-radius:30px;font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 20px rgba(0,0,0,0.4);display:flex;align-items:center;gap:7px;}
+body.rtl .lang-fab{right:auto;left:20px;font-family:'Tajawal',sans-serif;}
+.lang-fab:hover{background:var(--gold);color:var(--dark);}
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 20px 80px;}
+.hero-ornament{display:flex;align-items:center;gap:16px;margin-bottom:28px;opacity:0;animation:fadeUp 1s ease 0.2s forwards;}
+.orn-line{width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));opacity:0.6;}
+.orn-line.r{background:linear-gradient(90deg,var(--gold),transparent);}
+.orn-diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);opacity:0.8;}
+.hero-eyebrow{font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fadeUp 1s ease 0.3s forwards;margin-bottom:16px;}
+body.rtl .hero-eyebrow{letter-spacing:0.05em;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8vw,6rem);font-weight:300;line-height:1.05;color:var(--cream);letter-spacing:0.04em;opacity:0;animation:fadeUp 1s ease 0.4s forwards;}
+.hero-title em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:0.8rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-top:18px;opacity:0;animation:fadeUp 1s ease 0.55s forwards;}
+body.rtl .hero-sub{letter-spacing:0.05em;}
+.hero-desc{max-width:480px;margin:24px auto 0;font-size:0.9rem;line-height:1.9;color:var(--muted);font-weight:300;opacity:0;animation:fadeUp 1s ease 0.65s forwards;}
+.hero-cta{margin-top:40px;opacity:0;animation:fadeUp 1s ease 0.75s forwards;}
+.btn-gold{display:inline-block;padding:14px 40px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Jost',sans-serif;font-size:0.78rem;letter-spacing:0.25em;text-transform:uppercase;cursor:pointer;text-decoration:none;border-radius:2px;transition:all 0.4s;position:relative;overflow:hidden;}
+body.rtl .btn-gold{font-family:'Tajawal',sans-serif;letter-spacing:0.05em;}
+.btn-gold::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;z-index:-1;}
+.btn-gold:hover{color:var(--dark);}.btn-gold:hover::before{transform:scaleX(1);}
+.hero-info{display:flex;gap:40px;margin-top:50px;opacity:0;animation:fadeUp 1s ease 0.85s forwards;}
+.h-info-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);font-weight:300;text-align:center;}
+.h-info-lbl{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-top:3px;text-align:center;}
+body.rtl .h-info-lbl{letter-spacing:0.05em;}
+.section{position:relative;z-index:1;padding:80px 20px;}
+.section-inner{max-width:1000px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:52px;}
+.section-eye{font-size:0.63rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+body.rtl .section-eye{letter-spacing:0.05em;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--cream);letter-spacing:0.05em;}
+.section-div{display:flex;align-items:center;gap:12px;justify-content:center;margin-top:16px;}
+.div-line{width:40px;height:1px;background:var(--gold);opacity:0.3;}
+.div-dot{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px;}
+.svc-tile{background:var(--dark2);border:1px solid var(--border);padding:28px 20px;text-align:center;cursor:pointer;transition:all 0.35s;position:relative;overflow:hidden;}
+.svc-tile::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform 0.35s;}
+.svc-tile:hover{background:var(--dark3);transform:translateY(-4px);}
+.svc-tile:hover::after,.svc-tile.selected::after{transform:scaleX(1);}
+.svc-tile.selected{background:var(--dark3);border-color:var(--gold);transform:translateY(-4px);}
+.svc-check{position:absolute;top:10px;right:10px;width:18px;height:18px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:var(--dark);font-weight:700;opacity:0;transform:scale(0);transition:all 0.2s;}
+body.rtl .svc-check{right:auto;left:10px;}
+.svc-tile.selected .svc-check{opacity:1;transform:scale(1);}
+.svc-icon{font-size:2rem;margin-bottom:12px;display:block;}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--cream);font-weight:400;margin-bottom:6px;}
+.svc-price{font-size:0.78rem;color:var(--gold);letter-spacing:0.1em;}
+.svc-dur{font-size:0.68rem;color:var(--muted);margin-top:4px;}
+.booking-section{background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.booking-wrap{max-width:640px;margin:0 auto;}
+.sel-svc-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,169,110,0.1);border:1px solid rgba(201,169,110,0.25);border-radius:2px;padding:8px 18px;font-size:0.8rem;color:var(--gold);margin-bottom:16px;}
+.form-step{display:none;}.form-step.active{display:block;}
+.form-group{margin-bottom:20px;}
+.form-label{display:block;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+body.rtl .form-label{letter-spacing:0.05em;}
+.form-input{width:100%;background:var(--dark3);border:1px solid var(--border);padding:12px 16px;color:var(--text);font-family:'Jost',sans-serif;font-size:0.88rem;outline:none;border-radius:2px;transition:border-color 0.3s;}
+body.rtl .form-input{font-family:'Tajawal',sans-serif;}
+.form-input:focus{border-color:var(--gold);}
+select.form-input option{background:var(--dark3);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:500px){.form-row{grid-template-columns:1fr;}}
+.date-grid{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.date-btn{padding:10px 14px;background:var(--dark3);border:1px solid var(--border);border-radius:2px;color:var(--text);font-size:0.78rem;cursor:pointer;transition:all 0.2s;text-align:center;min-width:64px;}
+.date-btn:hover{border-color:var(--gold);}
+.date-btn.sel{background:rgba(201,169,110,0.12);border-color:var(--gold);color:var(--gold);}
+.d-name{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;opacity:0.6;display:block;}
+.d-num{font-family:'Cormorant Garamond',serif;font-size:1.2rem;display:block;margin-top:2px;}
+.time-grid{display:flex;flex-wrap:wrap;gap:8px;}
+.time-btn{padding:9px 14px;background:var(--dark3);border:1px solid var(--border);border-radius:2px;color:var(--text);font-size:0.78rem;cursor:pointer;transition:all 0.2s;}
+.time-btn:hover{border-color:var(--gold);}
+.time-btn.sel{background:rgba(201,169,110,0.12);border-color:var(--gold);color:var(--gold);font-weight:500;}
+.time-btn.taken{opacity:0.25;cursor:not-allowed;text-decoration:line-through;}
+.booking-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px;}
+.btn-prev{background:transparent;border:1px solid var(--border);color:var(--muted);padding:11px 24px;font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all 0.2s;}
+body.rtl .btn-prev{font-family:'Tajawal',sans-serif;letter-spacing:0.05em;}
+.btn-prev:hover{border-color:var(--muted);color:var(--text);}
+.btn-next{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:11px 28px;font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all 0.4s;position:relative;overflow:hidden;}
+body.rtl .btn-next{font-family:'Tajawal',sans-serif;letter-spacing:0.05em;}
+.btn-next::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;z-index:-1;}
+.btn-next:hover{color:var(--dark);}.btn-next:hover::before{transform:scaleX(1);}
+.steps-indicator{display:flex;align-items:center;justify-content:center;margin-bottom:40px;}
+.si-step{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.si-connector{width:60px;height:1px;background:var(--border);margin-top:-18px;}
+.si-dot{width:24px;height:24px;border-radius:50%;border:1px solid var(--border);background:var(--dark3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:var(--muted);transition:all 0.3s;}
+.si-step.active .si-dot{border-color:var(--gold);color:var(--gold);background:rgba(201,169,110,0.1);}
+.si-step.done .si-dot{border-color:var(--gold);background:var(--gold);color:var(--dark);}
+.si-label{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
+body.rtl .si-label{letter-spacing:0.02em;}
+.si-step.active .si-label{color:var(--gold);}
+.summary-box{background:var(--dark3);border:1px solid var(--border);border-radius:2px;padding:20px;margin-bottom:24px;}
+.sum-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(201,169,110,0.05);font-size:0.83rem;}
+.sum-row:last-child{border-bottom:none;}
+.sum-key{color:var(--muted);}.sum-val{color:var(--cream);font-weight:500;}.sum-val.gold{color:var(--gold);}
+.success-screen{display:none;text-align:center;padding:60px 20px;}
+.success-icon{width:70px;height:70px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 24px;background:rgba(201,169,110,0.08);}
+.success-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--cream);margin-bottom:12px;}
+.success-msg{font-size:0.85rem;color:var(--muted);line-height:1.9;max-width:400px;margin:0 auto 32px;}
+.success-ref{display:inline-block;background:rgba(201,169,110,0.08);border:1px solid rgba(201,169,110,0.2);padding:10px 24px;font-size:0.75rem;letter-spacing:0.2em;color:var(--gold);border-radius:2px;}
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40px 20px;text-align:center;}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--cream);}
+.footer-brand span{color:var(--gold);}
+.footer-info{font-size:0.72rem;color:var(--muted);margin-top:10px;line-height:2;}
+.footer-admin{display:inline-block;margin-top:20px;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.18);text-decoration:none;transition:color 0.3s;}
+.footer-admin:hover{color:var(--gold);}
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--gold);color:var(--dark);padding:11px 22px;border-radius:2px;font-size:0.8rem;font-weight:600;z-index:9999;transition:transform 0.3s;white-space:nowrap;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<button class="lang-fab" onclick="toggleLang()" id="lang-fab"><span>🌐</span><span id="lang-fab-txt">العربية</span></button>
+
+<section class="hero">
+  <div class="hero-ornament"><span class="orn-line"></span><span class="orn-diamond"></span><span class="orn-line r"></span></div>
+  <div class="hero-eyebrow" id="h-eyebrow">Dubai's Premier Beauty Destination</div>
+  <h1 class="hero-title">ZM <em>Beauty</em><br>Center</h1>
+  <div class="hero-sub" id="h-sub">Where Beauty Meets Elegance</div>
+  <p class="hero-desc" id="h-desc">Experience world-class beauty services by our expert team. Book your appointment in minutes.</p>
+  <div class="hero-cta"><a href="#services" class="btn-gold" id="h-cta">Book Appointment</a></div>
+  <div class="hero-info">
+    <div><div class="h-info-num" id="svc-count">8+</div><div class="h-info-lbl" id="h-lbl-svc">Services</div></div>
+    <div><div class="h-info-num">5★</div><div class="h-info-lbl" id="h-lbl-rated">Rated</div></div>
+    <div><div class="h-info-num">500+</div><div class="h-info-lbl" id="h-lbl-clients">Happy Clients</div></div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eye" id="svc-eye">Our Services</div>
+      <h2 class="section-title" id="svc-title">Choose Your Experience</h2>
+      <div class="section-div"><span class="div-line"></span><span class="div-dot"></span><span class="div-line"></span></div>
+    </div>
+    <div class="services-grid" id="services-grid"></div>
+    <div style="text-align:center;margin-top:32px;"><button class="btn-gold" onclick="scrollToBooking()" id="svc-cont">Continue to Booking</button></div>
+  </div>
+</section>
+
+<section class="section booking-section" id="booking">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eye" id="bk-eye">Book Appointment</div>
+      <h2 class="section-title" id="bk-title">Reserve Your Slot</h2>
+      <div class="section-div"><span class="div-line"></span><span class="div-dot"></span><span class="div-line"></span></div>
+      <div id="svc-badge" style="margin-top:20px;display:none;"><div class="sel-svc-badge"><span id="badge-icon"></span><span id="badge-name"></span><span style="color:var(--muted);">—</span><span id="badge-price"></span></div></div>
+    </div>
+    <div class="booking-wrap">
+      <div class="steps-indicator">
+        <div class="si-step active" id="si1"><div class="si-dot">1</div><div class="si-label" id="sl1">Service</div></div>
+        <div class="si-connector"></div>
+        <div class="si-step" id="si2"><div class="si-dot">2</div><div class="si-label" id="sl2">Schedule</div></div>
+        <div class="si-connector"></div>
+        <div class="si-step" id="si3"><div class="si-dot">3</div><div class="si-label" id="sl3">Details</div></div>
+        <div class="si-connector"></div>
+        <div class="si-step" id="si4"><div class="si-dot">4</div><div class="si-label" id="sl4">Confirm</div></div>
+      </div>
+
+      <div class="form-step active" id="step1">
+        <div class="services-grid" id="services-grid-b" style="gap:2px;margin-bottom:28px;"></div>
+        <div class="booking-nav"><span></span><button class="btn-next" id="bn1" onclick="goStep(2)">Next →</button></div>
+      </div>
+
+      <div class="form-step" id="step2">
+        <div class="form-group"><div class="form-label" id="lbl-date">Select Date</div><div class="date-grid" id="date-grid"></div></div>
+        <div class="form-group"><div class="form-label" id="lbl-time">Available Time Slots</div><div class="time-grid" id="time-grid"></div></div>
+        <div class="booking-nav"><button class="btn-prev" id="bp2" onclick="goStep(1)">← Back</button><button class="btn-next" id="bn2" onclick="goStep(3)">Next →</button></div>
+      </div>
+
+      <div class="form-step" id="step3">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label" id="lbl-name">Your Name *</label><input type="text" class="form-input" id="c-name" placeholder="Fatima Al Ali"></div>
+          <div class="form-group"><label class="form-label" id="lbl-phone">Phone Number *</label><input type="tel" class="form-input" id="c-phone" placeholder="+971 50 000 0000"></div>
+        </div>
+        <div class="form-group"><label class="form-label" id="lbl-notes">Special Notes (Optional)</label><textarea class="form-input" id="c-notes" rows="3"></textarea></div>
+        <div class="booking-nav"><button class="btn-prev" id="bp3" onclick="goStep(2)">← Back</button><button class="btn-next" id="bn3" onclick="goStep(4)">Review →</button></div>
+      </div>
+
+      <div class="form-step" id="step4">
+        <div class="summary-box" id="summary-box"></div>
+        <div class="booking-nav"><button class="btn-prev" id="bp4" onclick="goStep(3)">← Back</button><button class="btn-next" id="btn-confirm" onclick="submitBooking()">✦ Confirm Booking</button></div>
+      </div>
+
+      <div class="success-screen" id="success-screen">
+        <div class="success-icon">✦</div>
+        <div class="success-title" id="suc-title">Booking Confirmed!</div>
+        <p class="success-msg" id="suc-msg">Thank you! Your appointment has been received. We will contact you shortly to confirm your booking.</p>
+        <div class="success-ref" id="success-ref">REF: #ZM00000</div>
+        <br><br>
+        <button class="btn-gold" onclick="resetBooking()" id="suc-again" style="margin-top:16px;">Book Another</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">ZM <span>Beauty</span> Center</div>
+  <div class="footer-info" id="footer-info">📍 Dubai, UAE &nbsp;|&nbsp; 📞 +971 XX XXX XXXX &nbsp;|&nbsp; ⏰ 9:00 AM – 9:00 PM</div>
+  <a href="admin.html" class="footer-admin" id="footer-admin">Admin Panel</a>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const TR={
+  en:{langBtn:'العربية',heroEyebrow:"Dubai's Premier Beauty Destination",heroSub:'Where Beauty Meets Elegance',heroDesc:'Experience world-class beauty services by our expert team. Book your appointment in minutes.',heroCta:'Book Appointment',lblSvc:'Services',lblRated:'Rated',lblClients:'Happy Clients',svcEye:'Our Services',svcTitle:'Choose Your Experience',svcCont:'Continue to Booking',bkEye:'Book Appointment',bkTitle:'Reserve Your Slot',sl1:'Service',sl2:'Schedule',sl3:'Details',sl4:'Confirm',next:'Next →',back:'← Back',review:'Review →',confirm:'✦ Confirm Booking',lblDate:'Select Date',lblTime:'Available Time Slots',lblName:'Your Name *',lblPhone:'Phone Number *',lblNotes:'Special Notes (Optional)',namePh:'Fatima Al Ali',phonePh:'+971 50 000 0000',notesPh:'Any allergies, preferences, or special requests...',noDate:'Select a date first',sucTitle:'Booking Confirmed!',sucMsg:'Thank you! Your appointment has been received. We will contact you shortly to confirm your booking.',sucAgain:'Book Another',adminLnk:'Admin Panel',min:'min',sumSvc:'Service',sumDate:'Date',sumTime:'Time',sumDur:'Duration',sumName:'Name',sumPhone:'Phone',sumPrice:'Price',mins:'minutes',t1:'Please select a service first',t2:'Please select a date',t3:'Please select a time slot',t4:'Please enter your name',t5:'Please enter your phone number',t6:'Select a service to continue',days:['Sun','Mon','Tue','Wed','Thu','Fri','Sat']},
+  ar:{langBtn:'English',heroEyebrow:'وجهة الجمال الأولى في دبي',heroSub:'حيث يلتقي الجمال بالأناقة',heroDesc:'استمتعي بخدمات التجميل العالمية على يد فريقنا المتخصص. احجزي موعدك في دقائق.',heroCta:'احجزي موعدك',lblSvc:'الخدمات',lblRated:'تقييمنا',lblClients:'عميلة سعيدة',svcEye:'خدماتنا',svcTitle:'اختاري تجربتك',svcCont:'المتابعة للحجز',bkEye:'احجزي موعدك',bkTitle:'احجزي وقتك',sl1:'الخدمة',sl2:'الموعد',sl3:'التفاصيل',sl4:'التأكيد',next:'التالي ←',back:'→ رجوع',review:'مراجعة ←',confirm:'✦ تأكيد الحجز',lblDate:'اختاري التاريخ',lblTime:'الأوقات المتاحة',lblName:'اسمك الكريم *',lblPhone:'رقم الهاتف *',lblNotes:'ملاحظات خاصة (اختياري)',namePh:'فاطمة العلي',phonePh:'+971 50 000 0000',notesPh:'أي حساسية أو تفضيلات أو طلبات خاصة...',noDate:'الرجاء اختيار التاريخ أولاً',sucTitle:'تم تأكيد حجزك! 🎉',sucMsg:'شكراً لك! تم استلام حجزك. سنتواصل معك قريباً لتأكيد موعدك.',sucAgain:'حجز آخر',adminLnk:'لوحة الإدارة',min:'دقيقة',sumSvc:'الخدمة',sumDate:'التاريخ',sumTime:'الوقت',sumDur:'المدة',sumName:'الاسم',sumPhone:'الهاتف',sumPrice:'السعر',mins:'دقيقة',t1:'الرجاء اختيار خدمة أولاً',t2:'الرجاء اختيار التاريخ',t3:'الرجاء اختيار وقت',t4:'الرجاء إدخال اسمك',t5:'الرجاء إدخال رقم هاتفك',t6:'اختاري خدمة للمتابعة',days:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت']}
+};
+
+let lang=localStorage.getItem('zm_cl')||'en';
+let services=JSON.parse(localStorage.getItem('zm_services')||'null')||[
+  {id:'sv1',icon:'💅',name:'Nail Art',nameAr:'فن الأظافر',price:80,duration:45},
+  {id:'sv2',icon:'✨',name:'Nail Extension',nameAr:'تمديد الأظافر',price:150,duration:60},
+  {id:'sv3',icon:'🌸',name:'Manicure',nameAr:'مانيكير',price:60,duration:30},
+  {id:'sv4',icon:'🦶',name:'Pedicure',nameAr:'باديكير',price:70,duration:35},
+  {id:'sv5',icon:'💆',name:'Facial',nameAr:'عناية بالبشرة',price:120,duration:60},
+  {id:'sv6',icon:'👁️',name:'Eyebrow Thread',nameAr:'تشكيل الحواجب',price:20,duration:15},
+  {id:'sv7',icon:'💄',name:'Makeup',nameAr:'مكياج',price:250,duration:90},
+  {id:'sv8',icon:'🧴',name:'Waxing',nameAr:'إزالة الشعر',price:90,duration:40}
+];
+let bookings=JSON.parse(localStorage.getItem('zm_bookings')||'[]');
+let settings=JSON.parse(localStorage.getItem('zm_settings')||'{}');
+let currency=settings.currency||'AED';
+let selSvc=null,selDate=null,selTime=null;
+const TIMES=['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30','20:00','20:30'];
+
+function t(k){return TR[lang][k]||TR.en[k]||k;}
+function fmt(time){const[h,m]=time.split(':');const hh=parseInt(h);return`${hh>12?hh-12:hh||12}:${m} ${hh>=12?'PM':'AM'}`;}
+function cur(p){return`${currency} ${p}`;}
+function nm(s){return lang==='ar'&&s.nameAr?s.nameAr:s.name;}
+
+function toggleLang(){lang=lang==='en'?'ar':'en';localStorage.setItem('zm_cl',lang);applyLang();renderSvcs();renderDates();renderTimes();}
+
+function applyLang(){
+  const ar=lang==='ar';
+  document.documentElement.lang=lang;document.documentElement.dir=ar?'rtl':'ltr';
+  document.body.classList.toggle('rtl',ar);
+  const ids={
+    'lang-fab-txt':'langBtn','h-eyebrow':'heroEyebrow','h-sub':'heroSub','h-desc':'heroDesc',
+    'h-cta':'heroCta','h-lbl-svc':'lblSvc','h-lbl-rated':'lblRated','h-lbl-clients':'lblClients',
+    'svc-eye':'svcEye','svc-title':'svcTitle','svc-cont':'svcCont',
+    'bk-eye':'bkEye','bk-title':'bkTitle',
+    'sl1':'sl1','sl2':'sl2','sl3':'sl3','sl4':'sl4',
+    'bn1':'next','bp2':'back','bn2':'next','bp3':'back','bn3':'review','bp4':'back','btn-confirm':'confirm',
+    'lbl-date':'lblDate','lbl-time':'lblTime','lbl-name':'lblName','lbl-phone':'lblPhone','lbl-notes':'lblNotes',
+    'suc-title':'sucTitle','suc-msg':'sucMsg','suc-again':'sucAgain','footer-admin':'adminLnk'
+  };
+  Object.entries(ids).forEach(([id,k])=>{const el=document.getElementById(id);if(el)el.textContent=t(k);});
+  const cn=document.getElementById('c-name');if(cn)cn.placeholder=t('namePh');
+  const cp=document.getElementById('c-phone');if(cp)cp.placeholder=t('phonePh');
+  const cn2=document.getElementById('c-notes');if(cn2)cn2.placeholder=t('notesPh');
+  if(selSvc){document.getElementById('badge-name').textContent=nm(selSvc);}
+  if(settings.salonAddress){document.getElementById('footer-info').innerHTML=`📍 ${settings.salonAddress} | 📞 ${settings.salonPhone||'+971 XX XXX XXXX'} | ⏰ ${settings.workingHours||'9:00 AM – 9:00 PM'}`;}
+}
+
+function renderSvcs(){
+  document.getElementById('svc-count').textContent=services.length+'+';
+  const h=services.map(s=>`<div class="svc-tile ${selSvc?.id===s.id?'selected':''}" onclick="pickSvc('${s.id}')"><div class="svc-check">✓</div><span class="svc-icon">${s.icon}</span><div class="svc-name">${nm(s)}</div><div class="svc-price">${cur(s.price)}</div><div class="svc-dur">⏱ ${s.duration} ${t('min')}</div></div>`).join('');
+  document.getElementById('services-grid').innerHTML=h;document.getElementById('services-grid-b').innerHTML=h;
+}
+
+function pickSvc(id){
+  selSvc=services.find(s=>s.id===id);renderSvcs();
+  const b=document.getElementById('svc-badge');b.style.display='block';
+  document.getElementById('badge-icon').textContent=selSvc.icon;
+  document.getElementById('badge-name').textContent=nm(selSvc);
+  document.getElementById('badge-price').textContent=cur(selSvc.price);
+}
+
+function renderDates(){
+  const days=t('days');const today=new Date();let h='';
+  for(let i=0;i<10;i++){const d=new Date(today);d.setDate(today.getDate()+i);const iso=d.toISOString().split('T')[0];h+=`<button class="date-btn ${selDate===iso?'sel':''}" onclick="pickDate('${iso}')"><span class="d-name">${days[d.getDay()]}</span><span class="d-num">${d.getDate()}</span></button>`;}
+  document.getElementById('date-grid').innerHTML=h;
+}
+
+function pickDate(iso){selDate=iso;renderDates();renderTimes();}
+
+function renderTimes(){
+  if(!selDate){document.getElementById('time-grid').innerHTML=`<span style="color:var(--muted);font-size:0.82rem;">${t('noDate')}</span>`;return;}
+  const taken=bookings.filter(b=>b.date===selDate).map(b=>b.time);
+  document.getElementById('time-grid').innerHTML=TIMES.map(ti=>`<button class="time-btn ${selTime===ti?'sel':''} ${taken.includes(ti)?'taken':''}" onclick="${taken.includes(ti)?'':`pickTime('${ti}')`}">${fmt(ti)}</button>`).join('');
+}
+
+function pickTime(ti){selTime=ti;renderTimes();}
+
+function goStep(n){
+  if(n===2&&!selSvc)return toast(t('t1'));
+  if(n===3&&!selDate)return toast(t('t2'));
+  if(n===3&&!selTime)return toast(t('t3'));
+  if(n===4){
+    const name=document.getElementById('c-name').value.trim();
+    const phone=document.getElementById('c-phone').value.trim();
+    if(!name)return toast(t('t4'));if(!phone)return toast(t('t5'));
+    renderSum();
+  }
+  document.querySelectorAll('.form-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('step'+n).classList.add('active');
+  updateSI(n);document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+}
+
+function updateSI(n){for(let i=1;i<=4;i++){const el=document.getElementById('si'+i);el.classList.remove('active','done');if(i<n)el.classList.add('done');if(i===n)el.classList.add('active');}}
+
+function renderSum(){
+  const locale=lang==='ar'?'ar-AE':'en-AE';
+  const d=new Date(selDate);const ds=d.toLocaleDateString(locale,{weekday:'long',day:'numeric',month:'long'});
+  document.getElementById('summary-box').innerHTML=`
+    <div class="sum-row"><span class="sum-key">${t('sumSvc')}</span><span class="sum-val">${selSvc.icon} ${nm(selSvc)}</span></div>
+    <div class="sum-row"><span class="sum-key">${t('sumDate')}</span><span class="sum-val">${ds}</span></div>
+    <div class="sum-row"><span class="sum-key">${t('sumTime')}</span><span class="sum-val">${fmt(selTime)}</span></div>
+    <div class="sum-row"><span class="sum-key">${t('sumDur')}</span><span class="sum-val">${selSvc.duration} ${t('mins')}</span></div>
+    <div class="sum-row"><span class="sum-key">${t('sumName')}</span><span class="sum-val">${document.getElementById('c-name').value}</span></div>
+    <div class="sum-row"><span class="sum-key">${t('sumPhone')}</span><span class="sum-val">${document.getElementById('c-phone').value}</span></div>
+    <div class="sum-row"><span class="sum-key">${t('sumPrice')}</span><span class="sum-val gold">${cur(selSvc.price)}</span></div>`;
+}
+
+function submitBooking(){
+  const ref='ZM'+Date.now().toString().slice(-5);
+  bookings=JSON.parse(localStorage.getItem('zm_bookings')||'[]');
+  bookings.unshift({id:Date.now(),ref,name:document.getElementById('c-name').value.trim(),phone:document.getElementById('c-phone').value.trim(),service:selSvc.name,serviceIcon:selSvc.icon,price:selSvc.price,date:selDate,time:selTime,notes:document.getElementById('c-notes').value.trim(),status:'pending',payment:'pending',staffName:'',createdAt:new Date().toLocaleDateString()});
+  localStorage.setItem('zm_bookings',JSON.stringify(bookings));
+  document.querySelectorAll('.form-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('success-screen').style.display='block';
+  document.getElementById('success-ref').textContent='REF: #'+ref;
+  document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+}
+
+function resetBooking(){
+  selSvc=null;selDate=null;selTime=null;
+  document.getElementById('success-screen').style.display='none';
+  document.getElementById('step1').classList.add('active');
+  updateSI(1);
+  ['c-name','c-phone','c-notes'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('svc-badge').style.display='none';
+  renderSvcs();
+}
+
+function scrollToBooking(){
+  if(!selSvc){document.getElementById('services').scrollIntoView({behavior:'smooth'});toast(t('t6'));}
+  else document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+}
+
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3000);}
+
+applyLang();renderSvcs();renderDates();renderTimes();
+</script>
+</body>
+</html>
